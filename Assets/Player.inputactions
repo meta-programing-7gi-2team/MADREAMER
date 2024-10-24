@@ -9,19 +9,19 @@
                     "name": "TouchPosition",
                     "type": "Value",
                     "id": "a86e5950-6f7a-4336-bae7-ec5e4214c4b7",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
                     "name": "TouchPress",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "1ca89540-a21c-4627-b9e2-90ec2e73e342",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -31,7 +31,7 @@
                     "path": "<Touchscreen>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Mbile",
+                    "groups": "",
                     "action": "TouchPosition",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -52,14 +52,9 @@
     ],
     "controlSchemes": [
         {
-            "name": "Mbile",
-            "bindingGroup": "Mbile",
+            "name": "Mobile",
+            "bindingGroup": "Mobile",
             "devices": [
-                {
-                    "devicePath": "<AndroidGamepad>",
-                    "isOptional": false,
-                    "isOR": false
-                },
                 {
                     "devicePath": "<Touchscreen>",
                     "isOptional": false,
