@@ -2,21 +2,70 @@
     "name": "Player",
     "maps": [
         {
-            "name": "Android",
+            "name": "Player",
             "id": "5f40cbaa-e256-410b-a652-dad229d61cfa",
             "actions": [
                 {
-                    "name": "Touch",
+                    "name": "TouchPosition",
                     "type": "Value",
                     "id": "a86e5950-6f7a-4336-bae7-ec5e4214c4b7",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "TouchPress",
+                    "type": "Button",
+                    "id": "1ca89540-a21c-4627-b9e2-90ec2e73e342",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
-            "bindings": []
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "36339fce-0d90-44b1-80db-e6c73b757383",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Mbile",
+                    "action": "TouchPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ae73db24-ffd5-49dc-bb65-6a9a8786ea31",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Mbile",
+            "bindingGroup": "Mbile",
+            "devices": [
+                {
+                    "devicePath": "<AndroidGamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Touchscreen>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
