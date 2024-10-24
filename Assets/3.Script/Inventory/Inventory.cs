@@ -4,20 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
+
 public class Inventory : MonoBehaviour
 {
-    [Header("Maniplate")]
+    [Header("Control")]
     public RectTransform inventoryPanel;
-    public RectTransform slideEnableArea;
+    public RectTransform swipeEnableArea;
     public float slideDistance = 200f; 
     public float slideDuration = 0.5f;
     public float sensitivityDistance = 50f;
+
     private Vector2 startTouchPos;
     private bool isOpened = false;
     private bool isSwiping = false;
 
     [Header("Item")]
-    [SerializeField] private Image[] itemSlot;
+    public Sprite[] itemImages;
+    public ItemSlot[] slotList;
     private int itemCount = 0;
 
     void Update()
@@ -25,7 +28,7 @@ public class Inventory : MonoBehaviour
 #if UNITY_EDITOR
       
         if (Input.GetMouseButtonDown(0) && 
-            IsTouchSlideImage(Input.mousePosition))
+            IsTouchEnableArea(Input.mousePosition))
         {
             startTouchPos = Input.mousePosition;
             isSwiping = true;
@@ -79,18 +82,40 @@ public class Inventory : MonoBehaviour
             isOpened = false;
         }
     }
-    private bool IsTouchSlideImage(Vector2 touchPos)
+    private bool IsTouchEnableArea(Vector2 touchPos)
     {
-        Vector2 localTouchPos = slideEnableArea.InverseTransformPoint(touchPos);
-        return slideEnableArea.rect.Contains(localTouchPos);
+        Vector2 localTouchPos = swipeEnableArea.InverseTransformPoint(touchPos);
+        return swipeEnableArea.rect.Contains(localTouchPos);
     }
     #endregion
 
     #region Item
+    public void ItemTest()
+    {
+        int rand = Random.Range(0, itemImages.Length);
+        AddItem(rand);
+    }
     public void AddItem(int itemCode)
     {
-
+        if(itemCount == 6)
+        {
+            Debug.Log("Inventory Full");
+            return;
+        }
+        for(int i = 0; i < slotList.Length; i++)
+        {
+            if (slotList[i].isEmpty)
+            {
+                slotList[i].SetSlot(itemImages[itemCode] ,itemCode);
+                itemCount++;
+                break;
+            }
+        }
     }
-
+    public void RemoveItem(int slotIndex)
+    {
+        slotList[slotIndex].InitSlot();
+        itemCount--;
+    }
     #endregion
 }
