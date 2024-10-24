@@ -1,0 +1,22 @@
+{
+    "name": "Player",
+    "maps": [
+        {
+            "name": "Android",
+            "id": "5f40cbaa-e256-410b-a652-dad229d61cfa",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Value",
+                    "id": "a86e5950-6f7a-4336-bae7-ec5e4214c4b7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": []
+        }
+    ],
+    "controlSchemes": []
+}
